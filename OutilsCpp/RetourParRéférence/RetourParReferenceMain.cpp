@@ -13,6 +13,7 @@ int& nIeme(int i) {
 // Retourne une référence constante
 const int& reqB() {
 	static int b = 42;
+	//...
 	return b;
 }
 
@@ -24,7 +25,7 @@ int main() {
 	cout << "++nIeme(1) = " << ++nIeme(1) << endl;
 
 	cout << endl;
-
+	int y;
 	int x = reqB();
 	cout << "Valeur retournée par reqB : " << x << endl;
 	// Est-ce que la prochaine ligne compile? Pourquoi?
