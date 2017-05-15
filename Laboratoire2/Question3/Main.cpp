@@ -3,55 +3,27 @@
 
 int main() {
 
-	// Cas normal
-	Date *ptrDate = new Date { 14, 5, 2017 };
-	std::cout << *ptrDate;
-	Date *ptrDemain = ptrDate->ajouterUneJournee();
-	std::cout << *ptrDemain;
-	delete ptrDate;
-	delete ptrDemain;
-	ptrDate = 0;
-	ptrDemain = 0;
+	// Cas normal utilisant l'appel par référence constante
+	std::cout << "***** APPEL PAR RÉFÉRENCE CONSTANTE *****" << std::endl;
+	const Date dateConstante{ 14, 5, 2017 };
+	Date* ptrDemain = Date::ajouterUneJourneeDepuisReferenceConstante(dateConstante);
+	std::cout << "\t" << "La date constante n'a pas changé : " << dateConstante;
+	std::cout << "\t" << "La date de demain : " << *ptrDemain;
 
-	// Cas avec changement de mois.
-	ptrDate = new Date { 31, 5, 2017 };
-	std::cout << *ptrDate;
-	ptrDemain = ptrDate->ajouterUneJournee();
-	std::cout << *ptrDemain;
-	delete ptrDate;
-	delete ptrDemain;
-	ptrDate = 0;
-	ptrDemain = 0;
+	// Cas avec changement de mois en utilisant l'appel par référence.
+	std::cout << "***** APPEL PAR RÉFÉRENCE *****" << std::endl;
+	Date dateParReference{ 31, 5, 2017 };
+	std::cout << "\t" << "Avant l'appel : " << dateParReference;
+	Date::ajouterUneJourneeDepuisUneReference(dateParReference);
+	std::cout << "\t" << "Après l'appel : " << dateParReference;
 
-	// Cas avec changement d'année.
-	ptrDate = new Date { 31, 12, 2017 };
-	std::cout << *ptrDate;
-	ptrDemain = ptrDate->ajouterUneJournee();
-	std::cout << *ptrDemain;
-	delete ptrDate;
-	delete ptrDemain;
-	ptrDate = 0;
-	ptrDemain = 0;
-
-	// Cas 28 février d'une année bixestile.
-	ptrDate = new Date { 28, 2, 1976 };
-	std::cout << *ptrDate;
-	ptrDemain = ptrDate->ajouterUneJournee();
-	std::cout << *ptrDemain;
-	delete ptrDate;
-	delete ptrDemain;
-	ptrDate = 0;
-	ptrDemain = 0;
-
-	// Cas 28 février d'une année non bixestile.
-	ptrDate = new Date { 28, 2, 1977 };
-	std::cout << *ptrDate;
-	ptrDemain = ptrDate->ajouterUneJournee();
-	std::cout << *ptrDemain;
-	delete ptrDate;
-	delete ptrDemain;
-	ptrDate = 0;
-	ptrDemain = 0;
+	// Cas avec changement d'année en utilisant l'appel par valeur.
+	std::cout << "***** APPEL PAR VALEUR *****" << std::endl;
+	Date dateParValeur { 31, 12, 2017 };
+	std::cout << "\t" << "Avant l'appel : " << dateParValeur;
+	Date demain = Date::ajouterUneJourneeDepuisUneCopie(dateParValeur);
+	std::cout << "\t" << "La date originale n'a pas été changé :" << dateParValeur;
+	std::cout << "\t" << demain;
 
 	return 0;
 }
