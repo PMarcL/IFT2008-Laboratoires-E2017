@@ -16,8 +16,7 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace labPileFile
-{
+namespace labPileFile {
 /**
  * \class Pile
  *
@@ -27,8 +26,7 @@ namespace labPileFile
  *  se fait dans une liste chaînée.
  */
 template<typename T>
-class Pile
-{
+class Pile {
 public:
 	Pile();
 	Pile(const Pile &);
@@ -38,16 +36,13 @@ public:
 	T depiler();
 
 	bool estVide() const;
-	int taille() const;
+	size_t taille() const;
 	const T& top() const;
 
-	T operator[](const int &) const;
+	const T & operator[](const int &) const;
 	const Pile<T> & operator =(const Pile<T> &);
 
-	void verifieInvariant() const;
-
-	template<typename U> friend std::ostream& operator <<(std::ostream &,
-			const Pile<U> &);
+	template<typename U> friend std::ostream& operator <<(std::ostream &, const Pile<U> &);
 
 private:
 	/**
@@ -55,8 +50,7 @@ private:
 	 *
 	 * \brief Classe interne représentant un noeud (une position) dans la pile.
 	 */
-	class Noeud
-	{
+	class Noeud {
 	public:
 		T m_el; /*!<L'élément de base de la pile*/
 		Noeud * m_suivant; /*!<Un pointeur vers le noeud suivant*/
@@ -67,8 +61,7 @@ private:
 		 * \post Un noeud typique est initialisé.
 		 */
 		Noeud(const T& data_item, Noeud * next_ptr = 0) :
-			m_el(data_item), m_suivant(next_ptr)
-		{
+				m_el(data_item), m_suivant(next_ptr) {
 		}
 	};
 
@@ -84,12 +77,8 @@ private:
 	int m_cardinalite; /*!<Cardinalité de la pile*/
 
 	// Méthodes privées
-
-    // À titre indicatif, voici les méthodes privées de la solution
-    /*
 	void _detruire();
 	void _copier(const Pile<T> &);
-    */
 
 };
 } //Fin du namespace

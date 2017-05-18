@@ -21,7 +21,7 @@ int main() {
 	std::list<int>::const_iterator it = uneListe.begin(); // un peu long comme déclaration...
 	auto itFin = uneListe.end(); // beaucoup mieux en utilisant l'inférence de type
 
-	cout << "Utilistation des itérateur pour traverser la liste:" << endl;
+	cout << "Utilistation des itérateurs pour traverser la liste:" << endl;
 	for (; it != itFin; ++it) {
 		cout << *it << " ";
 	}
