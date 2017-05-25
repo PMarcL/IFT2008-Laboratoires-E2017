@@ -46,8 +46,8 @@ public:
 	void affiche() const;
 	std::vector<unsigned int> listerSommetsAdjacents(unsigned int) const;
 
-	unsigned int ordreEntreeSommet(unsigned int) const;
-	unsigned int ordreSortieSommet(unsigned int) const;
+	unsigned int degreEntreeSommet(unsigned int) const;
+	unsigned int degreSortieSommet(unsigned int) const;
 
 private:
 
@@ -59,9 +59,6 @@ private:
 	// La première dimension correspond aux lignes, et la seconde dimension correspond
 	// aux colonnes.
 	std::vector<std::vector<bool> > m_matriceAdj; /*!< la matrice d'adjacence */
-
-	// Méthodes privées
-	void verifieInvariant() const;
 
 };
 

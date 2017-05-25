@@ -46,20 +46,16 @@ public:
 	void affiche() const;
 	std::vector<unsigned int> listerSommetsAdjacents(unsigned int) const;
 
-	unsigned int ordreEntreeSommet(unsigned int) const;
-	unsigned int ordreSortieSommet(unsigned int) const;
+	unsigned int degreEntreeSommet(unsigned int) const;
+	unsigned int degreSortieSommet(unsigned int) const;
 
 private:
-
 	size_t m_nbSommets; /*!< le nombre de sommets */
 	std::vector<T> m_noms; /*!< les noms des sommets */
 
 	// Chaque sommet a sa liste d'adjacences, dont les valeurs correspondent au numéro
 	// du sommet pointé par l'arc.
 	std::vector<std::list<unsigned int> > m_listesAdj; /*!< les listes d'adjacence */
-
-	// Méthodes privées
-	void verifieInvariant() const;
 
 };
 
