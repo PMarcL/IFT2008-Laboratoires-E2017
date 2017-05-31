@@ -1,13 +1,13 @@
 #include <iostream>
 #include <algorithm>
+#include <stack>
 #include "ContratException.h"
 
 namespace labGrapheListes {
 
 template<typename T>
 Graphe<T>::Graphe(size_t nbSommets) :
-		m_nbSommets(nbSommets), m_noms(std::vector < T > (nbSommets)), m_marque(std::vector<bool>(nbSommets, false)), m_listesAdj(
-				nbSommets) {
+		m_nbSommets(nbSommets), m_noms(std::vector < T > (nbSommets)), m_listesAdj(nbSommets) {
 }
 
 template<typename T>
