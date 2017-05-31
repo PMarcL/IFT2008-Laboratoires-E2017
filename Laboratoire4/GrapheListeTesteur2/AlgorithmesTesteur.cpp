@@ -39,7 +39,7 @@ protected:
 //
 //	EXPECT_EQ(solution1, p);
 //}
-//
+
 //TEST_F(GrapheAlgorithmesTest, parcoursProfondeurDeuxSolutions) {
 //	std::vector<unsigned int> p = g.parcoursProfondeur(3);
 //
