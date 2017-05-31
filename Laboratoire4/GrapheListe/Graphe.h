@@ -49,9 +49,14 @@ public:
 	unsigned int degreEntreeSommet(unsigned int) const;
 	unsigned int degreSortieSommet(unsigned int) const;
 
+	std::vector<unsigned int> parcoursProfondeur(unsigned int) const;
+	std::vector<unsigned int> parcoursLargeur(unsigned int) const;
+	bool estConnexe() const;
+	std::vector<unsigned int> triTopologique() const;
 private:
 	size_t m_nbSommets; /*!< le nombre de sommets */
 	std::vector<T> m_noms; /*!< les noms des sommets */
+	std::vector<bool> m_marque; /*!< booléens permettant de marquer les sommets visités lors des différents parcours */
 
 	// Chaque sommet a sa liste d'adjacences, dont les valeurs correspondent au numéro
 	// du sommet pointé par l'arc.

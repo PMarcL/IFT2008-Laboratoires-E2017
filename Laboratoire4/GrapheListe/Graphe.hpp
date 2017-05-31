@@ -2,13 +2,12 @@
 #include <algorithm>
 #include "ContratException.h"
 
-using namespace std;
-
 namespace labGrapheListes {
 
 template<typename T>
 Graphe<T>::Graphe(size_t nbSommets) :
-		m_nbSommets(nbSommets), m_noms(vector < T > (nbSommets)), m_listesAdj(nbSommets) {
+		m_nbSommets(nbSommets), m_noms(std::vector < T > (nbSommets)), m_marque(std::vector<bool>(nbSommets, false)), m_listesAdj(
+				nbSommets) {
 }
 
 template<typename T>
@@ -36,7 +35,7 @@ void Graphe<T>::enleverArc(unsigned int source, unsigned int destination) {
 	PRECONDITION(destination < m_nbSommets);
 	PRECONDITION(arcExiste(source, destination));
 
-	list<unsigned int> & liste = m_listesAdj[source];
+	std::list<unsigned int> & liste = m_listesAdj[source];
 	auto it = find(liste.begin(), liste.end(), destination);
 	liste.erase(it);
 }
@@ -76,9 +75,9 @@ void Graphe<T>::affiche() const {
 }
 
 template<typename T>
-vector<unsigned int> Graphe<T>::listerSommetsAdjacents(unsigned int sommet) const {
+std::vector<unsigned int> Graphe<T>::listerSommetsAdjacents(unsigned int sommet) const {
 	PRECONDITION(sommet < m_nbSommets);
-	return vector<unsigned int>(m_listesAdj[sommet].begin(), m_listesAdj[sommet].end());
+	return std::vector<unsigned int>(m_listesAdj[sommet].begin(), m_listesAdj[sommet].end());
 }
 
 template<typename T>
