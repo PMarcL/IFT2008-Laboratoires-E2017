@@ -18,6 +18,11 @@
 #include <list>
 
 namespace labGrapheListes {
+
+enum EtatSommet {
+	PasVisite, EnCoursDeVisite, Visite
+};
+
 /**
  * \class Graphe
  *
@@ -54,6 +59,8 @@ public:
 	bool estConnexe() const;
 	std::vector<unsigned int> triTopologique() const;
 private:
+	void visiterSommet(unsigned int sommet, std::vector<EtatSommet> & etats, std::list<unsigned int> &triTopo) const;
+
 	size_t m_nbSommets; /*!< le nombre de sommets */
 	std::vector<T> m_noms; /*!< les noms des sommets */
 
