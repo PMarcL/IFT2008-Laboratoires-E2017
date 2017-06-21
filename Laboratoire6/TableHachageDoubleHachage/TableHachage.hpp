@@ -115,7 +115,7 @@ void TableHachage<TypeClef, TypeElement, FoncteurHachage1, FoncteurHachage2>::re
 		}
 	}
 
-	m_tab.resize(m_tab.size() * 2);
+	m_tab.resize(_prochainPremier(m_tab.size() * 2));
 	vider();
 
 	for (size_t i = 0; i < entreesActives.size(); i++) {
