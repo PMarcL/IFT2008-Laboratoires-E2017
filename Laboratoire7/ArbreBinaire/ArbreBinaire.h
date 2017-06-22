@@ -41,8 +41,6 @@ public:
 	std::vector<E> listerEnOrdre() const;
 	std::vector<E> listerPostOrdre() const;
 	std::vector<E> listerParNiveau() const;
-
-	void verifieInvariant() const;
 private:
 	/**
 	 * \class Noeud
@@ -73,16 +71,12 @@ private:
 	typedef typename std::vector<E>::const_iterator vecItr;
 	typedef const vecItr constVecItr;
 	Noeud * _auxPereSym(constVecItr&, constVecItr&, constVecItr&, constVecItr&);
-
-    // À titre indicatif, voici les méthodes privées de la solution
-    /*
 	Noeud * _auxPereSym(E *, int, int, E **);
+	void _auxCopier(Noeud *, Noeud*&);
+	void _auxDetruire(Noeud *&);
 	void _listerEnOrdre(Noeud *, std::vector<E> &) const;
 	void _listerPreOrdre(Noeud *, std::vector<E> &) const;
 	void _listerPostOrdre(Noeud *, std::vector<E> &) const;
-	void _auxCopier(Noeud *, Noeud*&);
-	void _auxDetruire(Noeud *&);
-    */
 
 };
 
