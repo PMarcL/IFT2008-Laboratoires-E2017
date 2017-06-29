@@ -89,7 +89,7 @@ private:
 
 	void _insererAVL(Noeud * &, const E &);
 	int _hauteur(Noeud * &) const;
-	Noeud* _appartient(Noeud * const &, const E &) const;
+	bool _appartient(Noeud * const &, const E &) const;
 	bool _debalancementAGauche(Noeud * &) const;
 	bool _debalancementADroite(Noeud * &) const;
 	bool _sousArbrePencheAGauche(Noeud * &) const;
