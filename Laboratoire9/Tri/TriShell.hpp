@@ -16,7 +16,20 @@ namespace labTris {
 
 template<typename E>
 void triShell(std::vector<E> & p_v) {
-
+	size_t j;
+	E x;
+	int k = std::floor(std::log2((double) p_v.size()));
+	for (unsigned int saut = std::pow(2, k) - 1; k > 0; k--, saut = std::pow(2, k) - 1) {
+		for (size_t i = 0; i < p_v.size(); i += saut) {
+			j = i;
+			x = p_v[i];
+			while (j >= saut && x < p_v[j - saut]) {
+				p_v[j] = p_v[j - saut];
+				j -= saut;
+			}
+			p_v[j] = x;
+		}
+	}
 }
 
 } // Fin namespace
